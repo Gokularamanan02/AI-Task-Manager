@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/api/auth';
+  private apiUrl = 'https://ai-task-manager-gj0w.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
