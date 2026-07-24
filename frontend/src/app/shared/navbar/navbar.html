@@ -1,0 +1,59 @@
+<nav class="navbar">
+
+
+  <h2>
+    AI Task Manager
+  </h2>
+
+
+  <div class="links">
+
+
+    <a routerLink="/">
+      Home
+    </a>
+
+
+    <a 
+    routerLink="/dashboard"
+    *ngIf="authService.isLoggedIn()">
+
+      Dashboard
+
+    </a>
+
+
+
+    <a 
+    routerLink="/profile"
+    *ngIf="authService.isLoggedIn()">
+
+      Profile
+
+    </a>
+
+
+
+    <button
+    *ngIf="authService.isLoggedIn()"
+    (click)="logout()">
+
+      Logout
+
+    </button>
+
+
+
+    <a 
+    routerLink="/login"
+    *ngIf="!authService.isLoggedIn()">
+
+      Login
+
+    </a>
+
+
+  </div>
+
+
+</nav>

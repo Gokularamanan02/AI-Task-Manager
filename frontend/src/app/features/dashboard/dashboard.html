@@ -1,0 +1,79 @@
+<div class="dashboard-wrapper">
+
+
+  <div class="dashboard-stats">
+
+
+    <div class="stat-card">
+
+      <h3>
+        Total Tasks
+      </h3>
+
+      <p>
+        {{ taskList?.tasks?.length || 0 }}
+      </p>
+
+    </div>
+
+
+
+    <div class="stat-card">
+
+      <h3>
+        Pending
+      </h3>
+
+      <p>
+        {{ getPendingTasks() }}
+      </p>
+
+    </div>
+
+
+
+    <div class="stat-card">
+
+      <h3>
+        Completed
+      </h3>
+
+      <p>
+        {{ getCompletedTasks() }}
+      </p>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="dashboard-container">
+
+
+    <div class="left-panel">
+
+
+      <app-task-create
+      (taskCreated)="refreshTaskList()">
+      </app-task-create>
+
+
+    </div>
+
+
+
+    <div class="right-panel">
+
+
+      <app-task-list></app-task-list>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>

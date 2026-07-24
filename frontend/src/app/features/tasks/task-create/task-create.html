@@ -1,0 +1,82 @@
+<section class="create-task">
+
+
+<h2>
+Create New Task
+</h2>
+
+
+<form (ngSubmit)="createTask()">
+
+
+<input
+
+type="text"
+
+placeholder="Task title"
+
+[(ngModel)]="task.title"
+
+name="title"
+
+required
+
+>
+
+
+
+<textarea
+
+placeholder="Description"
+
+[(ngModel)]="task.description"
+
+name="description">
+
+</textarea>
+
+
+
+<select
+
+[(ngModel)]="task.priority"
+
+name="priority">
+
+
+<option value="low">
+Low
+</option>
+
+
+<option value="medium">
+Medium
+</option>
+
+
+<option value="high">
+High
+</option>
+
+
+</select>
+
+
+
+<button type="submit">
+
+Create Task
+
+</button>
+
+
+</form>
+
+
+
+<p>
+{{message}}
+</p>
+
+
+</section>

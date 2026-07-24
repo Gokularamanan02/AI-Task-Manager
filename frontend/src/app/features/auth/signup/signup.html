@@ -1,0 +1,51 @@
+<section class="signup-page">
+
+  <div class="signup-card">
+
+    <h1>Create Account</h1>
+
+    <p>Join the AI platform</p>
+
+
+    <form (ngSubmit)="signup()">
+
+      <input
+        type="text"
+        placeholder="Name"
+        [(ngModel)]="signupData.name"
+        name="name"
+        required
+      />
+
+
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="signupData.email"
+        name="email"
+        required
+      />
+
+
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="signupData.password"
+        name="password"
+        required
+      />
+
+
+      <button type="submit">
+        Sign Up
+      </button>
+      <p class="signup-link">
+  Already have an account?
+  <a routerLink="/login">Login</a>
+</p>
+
+    </form>
+
+  </div>
+
+</section>

@@ -1,0 +1,203 @@
+<section class="tasks-container">
+
+  <h2>
+    My Tasks
+  </h2>
+
+
+  <div *ngIf="loading">
+    Loading tasks...
+  </div>
+
+
+
+  <div 
+    class="task-card"
+    *ngFor="let task of tasks">
+
+
+    <!-- Normal Task View -->
+
+    <div *ngIf="!editingTask || editingTask._id !== task._id">
+
+
+      <div class="task-header">
+
+
+        <h3>
+          {{ task.title }}
+        </h3>
+
+
+        <span 
+        class="status-badge"
+        [class.pending]="task.status === 'pending'"
+        [class.completed]="task.status === 'completed'">
+
+          {{ task.status }}
+
+        </span>
+
+
+      </div>
+
+
+
+      <p>
+        {{ task.description }}
+      </p>
+
+
+
+      <p>
+        Priority:
+
+        <span 
+        class="priority"
+        [class.high]="task.priority === 'high'"
+        [class.medium]="task.priority === 'medium'"
+        [class.low]="task.priority === 'low'">
+
+          {{ task.priority }}
+
+        </span>
+
+      </p>
+
+
+
+
+      <div class="task-actions">
+
+
+        <button
+        class="status-btn"
+        (click)="toggleStatus(task)">
+
+          {{ task.status === 'pending' ? 'Mark Completed' : 'Mark Pending' }}
+
+        </button>
+
+
+
+        <button
+        class="edit-btn"
+        (click)="editTask(task)">
+
+          Edit
+
+        </button>
+
+
+
+        <button
+        class="delete-btn"
+        (click)="deleteTask(task._id)">
+
+          Delete
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+
+    <!-- Edit Mode -->
+
+
+    <div 
+    class="edit-box"
+    *ngIf="editingTask && editingTask._id === task._id">
+
+
+
+      <input
+      type="text"
+      [(ngModel)]="editingTask.title"
+      placeholder="Task title">
+
+
+
+
+
+      <textarea
+      [(ngModel)]="editingTask.description"
+      placeholder="Description">
+      </textarea>
+
+
+
+
+
+      <select
+      [(ngModel)]="editingTask.priority">
+
+
+        <option value="low">
+          Low
+        </option>
+
+
+        <option value="medium">
+          Medium
+        </option>
+
+
+        <option value="high">
+          High
+        </option>
+
+
+      </select>
+
+
+
+
+
+      <button
+      class="update-btn"
+      (click)="updateTask()">
+
+        Update
+
+      </button>
+
+
+
+
+
+      <button
+      class="cancel-btn"
+      (click)="cancelEdit()">
+
+        Cancel
+
+      </button>
+
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+
+  <p *ngIf="!loading && tasks.length === 0">
+
+    No tasks found
+
+  </p>
+
+
+
+</section>
